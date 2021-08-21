@@ -17,7 +17,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.jimji1005.expofirebasemap"
     },
     "android": {
       "adaptiveIcon": {
