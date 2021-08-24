@@ -1,12 +1,25 @@
-import * as React from 'react';
+import React, { useEffect, useState } from "react";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import Nav from './src/Navigation';
+import SignInSignUpScreen from './src/SignInSignUpScreen';
+import firebaseApp from "./src/firebaseConfig";
+import { AuthProvider } from "./src/auth-context";
 
 export default function App() {
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    firebaseApp.auth().onAuthStateChanged((user) => {
+      console.log('onAuthStateChanged', user);
+      setUser(user);
+    });
+  }, []);
+
   return (
-    <SafeAreaProvider>
-      <Nav/>
-    </SafeAreaProvider>
+    <AuthProvider>
+      <SafeAreaProvider>
+        {user ? <Nav/> : <SignInSignUpScreen/>}
+      </SafeAreaProvider>
+    </AuthProvider>
   );
 }
