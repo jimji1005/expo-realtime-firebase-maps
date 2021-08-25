@@ -28,8 +28,6 @@ function TabStack() {
             } else if (route.name === 'MarkerList') {
               iconName = focused ? 'list' : 'list';
             }
-
-            // You can return any component that you like here!
             return <FontAwesome name={iconName} size={size} color={color} />;
           },
           tabBarActiveTintColor: 'tomato',

@@ -26,6 +26,11 @@
         "backgroundColor": "#FFFFFF"
       }
     },
+    "plugins": [
+      [
+        "@react-native-mapbox-gl/maps"
+      ]
+    ],
     "web": {
       "favicon": "./assets/favicon.png"
     }
